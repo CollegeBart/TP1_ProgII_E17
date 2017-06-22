@@ -6,7 +6,7 @@ public:
 	~Brick();
 
 	void Draw(ID3DXSprite* spriteBatch);
-
+	void SetPosition(D3DXVECTOR3 pos);
 private:
 	// Sprite
 	IDirect3DTexture9* texture;

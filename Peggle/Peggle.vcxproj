@@ -170,6 +170,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\ImageConvertPNGTP1\basket.png" />
     <Image Include="ball.png" />
     <Image Include="bg3.png" />
     <Image Include="Peggle.ico" />

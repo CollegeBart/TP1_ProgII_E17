@@ -103,6 +103,9 @@
     <Image Include="baskright.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="..\ImageConvertPNGTP1\basket.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Peggle.rc">

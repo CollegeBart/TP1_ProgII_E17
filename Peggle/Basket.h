@@ -14,7 +14,9 @@ private:
 	D3DXIMAGE_INFO info;
 	D3DXVECTOR3 position;
 	D3DXVECTOR3 center;
-	D3DXVECTOR3 maxPosition;
-
+	D3DXVECTOR3 leftPosition;
+	D3DXVECTOR3 rightPosition;
+	D3DXVECTOR3 speed;
+	D3DXVECTOR3 tempPos;
 };
 

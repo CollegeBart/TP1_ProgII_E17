@@ -47,6 +47,7 @@ void Peggle::Draw()
 		D3DXSPRITE_OBJECTSPACE | D3DXSPRITE_DONOTMODIFY_RENDERSTATE));
 
 	bg.Draw(spriteBatch);
+	brk.Draw(spriteBatch);
 	balle.Draw(spriteBatch);
 	bask.Draw(spriteBatch);
 
