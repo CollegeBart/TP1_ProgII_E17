@@ -6,6 +6,7 @@
 #include "Background.h"
 #include "Brick.h"
 #include "Basket.h"
+#include "Cannon.h"
 
 class Peggle 
 	: public D3DApp
@@ -22,6 +23,7 @@ private:
 	ID3DXSprite* spriteBatch;
 
 	// Objets
+	Cannon canon;
 	Patrick patrick;
 	Balle balle;
 	Background bg;

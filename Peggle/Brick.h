@@ -12,6 +12,11 @@ private:
 	IDirect3DTexture9* texture;
 	D3DXIMAGE_INFO info;
 	D3DXVECTOR3 position;
+	D3DXVECTOR3 position1;
+	D3DXVECTOR3 position2;
+	D3DXVECTOR3 position3;
+	D3DXVECTOR3 position4;
 	D3DXVECTOR3 center;
+
 };
 

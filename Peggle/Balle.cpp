@@ -5,7 +5,15 @@
 
 Balle::Balle()
 	: center(.0f, .0f, .0f)
-	, position(.0f, .0f, .0f)
+	, position(.0f, -325.f, .0f)
+	, topPos(.0f, -340.f, .0f)
+	, botPos(.0f, 330.f, .0f)
+	, leftPos(-610.f, 0.f, 0.f)
+	, rightPos(610.f, 0.f, 0.f)
+	, gravity(0.f, 9.8f, 0.0f)
+	, dirX(1), dirY(1)
+	, speed(200)
+	
 {
 	HR(D3DXCreateTextureFromFileEx(gD3DDevice, L"ball.png", 0, 0, 1, 0,
 		D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_FILTER_NONE, D3DX_DEFAULT,
@@ -21,7 +29,18 @@ Balle::~Balle()
 
 void Balle::Update()
 {
-	position += D3DXVECTOR3(.0f, 100.f, 0.f) * gD3DApp->GetTimer()->GetDeltaTime();
+
+	if (position.y <= topPos.y || position.y >= botPos.y)
+	{
+		dirY *= -1;
+	}
+	if (position.x <= leftPos.x || position.x >= rightPos.x)
+	{
+		dirX *= -1;
+	}
+
+	prevPos = position;
+	position += D3DXVECTOR3(dirX, dirY, 0) *  speed * gD3DApp->GetTimer()->GetDeltaTime();
 }
 
 void Balle::Draw(ID3DXSprite* spriteBatch)

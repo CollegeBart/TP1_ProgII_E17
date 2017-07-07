@@ -34,6 +34,7 @@ void Peggle::Update()
 {
 	balle.Update();
 	bask.Update();
+	canon.Update();
 }
 
 void Peggle::Draw()
@@ -50,6 +51,7 @@ void Peggle::Draw()
 	brk.Draw(spriteBatch);
 	balle.Draw(spriteBatch);
 	bask.Draw(spriteBatch);
+	canon.Draw(spriteBatch);
 
 	HR(spriteBatch->End());
 	HR(gD3DDevice->EndScene());

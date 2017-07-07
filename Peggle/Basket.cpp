@@ -27,7 +27,7 @@ Basket::~Basket()
 
 void Basket::Update()
 {
-	if (position.x < leftPosition.x || position.x > rightPosition.x)
+	if (position.x < leftPosition.x || position.x > rightPosition.x )
 	{
 		speed.x *= -1;
 	}
