@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "Cannon.h"
-#include "D3DApp.h"
-
-
 
 Cannon::Cannon()
 	: center(.0f, .0f, .0f)
@@ -13,12 +10,11 @@ Cannon::Cannon()
 		D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_FILTER_NONE, D3DX_DEFAULT,
 		D3DCOLOR_XRGB(255, 255, 255), &info, NULL, &texture));
 
-	HR(D3DXCreateTextureFromFileEx(gD3DDevice, L"ball.png", 0,0,1,0,
-		D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_FILTER_NONE, D3DX_DEFAULT,
-		D3DCOLOR_XRGB(255, 255, 255), &ballinf, NULL, &texture));
+	//HR(D3DXCreateTextureFromFileEx(gD3DDevice, L"ball.png", 0,0,1,0,
+	//	D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_FILTER_NONE, D3DX_DEFAULT,
+	//	D3DCOLOR_XRGB(255, 255, 255), &ballinf, NULL, &texture));
 
 	center = D3DXVECTOR3(info.Width / 2, info.Height / 2, 0.f);
-	
 }
 
 
@@ -46,14 +42,6 @@ void Cannon::Update()
 	}
 		
 	D3DXMatrixRotationZ(&rotMatrix, rot);
-
-	if (gD3DApp->GetInput()->KeyDown(DIK_SPACE))
-	{
-		//instanciate the ball
-		ball.Update();
-	}
-
-	
 }
 
 void Cannon::Draw(ID3DXSprite * spriteBatch)

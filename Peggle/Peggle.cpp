@@ -32,6 +32,13 @@ Peggle::~Peggle()
 
 void Peggle::Update()
 {
+	if (gD3DApp->GetInput()->KeyPressed(DIK_SPACE))
+	{
+		balle.SetVisible(true);
+		balle.position = D3DXVECTOR3(0,-300,0);
+		//instanciate the ball
+	}
+
 	balle.Update();
 	bask.Update();
 	canon.Update();

@@ -14,6 +14,8 @@ Balle::Balle()
 	, dirX(1), dirY(1)
 	, velocity(0.f)
 	, acceleration(9.8f)
+	, speed(200)
+	, isVisible(false)
 	
 {
 	HR(D3DXCreateTextureFromFileEx(gD3DDevice, L"ball.png", 0, 0, 1, 0,
@@ -30,28 +32,32 @@ Balle::~Balle()
 
 void Balle::Update()
 {
-	velocity += acceleration * gD3DApp->GetTimer()->GetDeltaTime();
-
-	if (position.y <= topPos.y || position.y >= botPos.y)
+	//velocity += acceleration * gD3DApp->GetTimer()->GetDeltaTime();
+	if (isVisible == true)
 	{
-		dirY *= -1;
-		velocity *= -0.5f;
-	}
-	if (position.x <= leftPos.x || position.x >= rightPos.x)
-	{
-		dirX *= -1;
-		velocity *= -.5f;
+		if (position.y <= topPos.y || position.y >= botPos.y)
+		{
+			dirY *= -1;
+			//velocity *= -0.5f;
+		}
+		if (position.x <= leftPos.x || position.x >= rightPos.x)
+		{
+			dirX *= -1;
+		}
 	}
 
 	prevPos = position;
 
-	position.y += velocity * gD3DApp->GetTimer()->GetDeltaTime();
+	position += D3DXVECTOR3(dirX, dirY, 0) *  speed * gD3DApp->GetTimer()->GetDeltaTime();
 
-	position += D3DXVECTOR3(dirX, dirY, 0) *  velocity * gD3DApp->GetTimer()->GetDeltaTime();
+	//position.y += velocity * gD3DApp->GetTimer()->GetDeltaTime();
 }
 
 void Balle::Draw(ID3DXSprite* spriteBatch)
 {
-	HR(spriteBatch->Draw(texture, 0, &center, &position, D3DCOLOR_XRGB(255, 255, 255)));
-	HR(spriteBatch->Flush());
+	if (isVisible == true)
+	{
+		HR(spriteBatch->Draw(texture, 0, &center, &position, D3DCOLOR_XRGB(255, 255, 255)));
+		HR(spriteBatch->Flush());
+	}
 }
