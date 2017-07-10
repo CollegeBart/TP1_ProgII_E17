@@ -19,9 +19,9 @@ private:
 	D3DXVECTOR3 rightPos;
 	D3DXVECTOR3 gravity;
 	D3DXVECTOR3 prevPos;
-	int speed;
 	D3DXVECTOR3 center;
 	int dirX, dirY;
+	float velocity, acceleration;
 
 };
 
