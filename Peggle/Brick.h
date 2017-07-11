@@ -5,6 +5,7 @@ public:
 	Brick();
 	~Brick();
 
+	bool CollidesWith(const Brick& bricks) const;
 	void Draw(ID3DXSprite* spriteBatch);
 	void SetPosition(D3DXVECTOR3 pos);
 private:
@@ -17,6 +18,8 @@ private:
 	D3DXVECTOR3 position3;
 	D3DXVECTOR3 position4;
 	D3DXVECTOR3 center;
+
+	D3DXVECTOR2 m_topleft, m_size;
 
 };
 

@@ -2,7 +2,6 @@
 #include "Brick.h"
 #include "D3DApp.h"
 
-
 Brick::Brick()
 	: center(.0f, .0f, .0f)
 	, position(10.f, .0f, .0f)
@@ -14,13 +13,22 @@ Brick::Brick()
 	center = D3DXVECTOR3(info.Width / 2, info.Height / 2, 0.f);
 }
 
-
 Brick::~Brick()
 {
 	ReleaseCOM(texture);
 }
 
+bool Brick::CollidesWith(const Brick & bricks) const
+{
+	bool hit = false;
+	float lenght, height;
 
+
+
+
+
+	return false;
+}
 
 void Brick::Draw(ID3DXSprite* spriteBatch)
 {

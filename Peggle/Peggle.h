@@ -18,8 +18,9 @@ public:
 
 	void Update();
 	void Draw();
-
 private:
+	int offset ;
+	D3DXVECTOR2 startPos;
 	ID3DXSprite* spriteBatch;
 
 	// Objets
@@ -27,7 +28,7 @@ private:
 	Patrick patrick;
 	Balle balle;
 	Background bg;
-	Brick brk;
+	Brick brk[100];
 	Basket bask;
 
 	// Camera

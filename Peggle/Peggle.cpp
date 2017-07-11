@@ -10,6 +10,8 @@ Peggle::Peggle(HINSTANCE hInstance, int nCmdShow)
 	, eyePos(.0f, .0f, -10.f)
 	, target(0.f, 0.f, 0.f)
 	, up(0.f, -1.0f, 0.f)
+	, offset(50)
+	, startPos(-460, -100)
 {
 	HR(D3DXCreateSprite(gD3DDevice, &spriteBatch));
 
@@ -23,6 +25,17 @@ Peggle::Peggle(HINSTANCE hInstance, int nCmdShow)
 
 	HR(gD3DDevice->SetTransform(D3DTS_VIEW, &view));
 	HR(gD3DDevice->SetTransform(D3DTS_PROJECTION, &ortho));
+
+
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			brk[i*5+j].SetPosition(D3DXVECTOR3(startPos.x + i * offset, startPos.y + j * offset, 0));
+		}
+	}
+
+	
 }
 
 Peggle::~Peggle()
@@ -34,9 +47,15 @@ void Peggle::Update()
 {
 	if (gD3DApp->GetInput()->KeyPressed(DIK_SPACE))
 	{
-		balle.SetVisible(true);
-		balle.position = D3DXVECTOR3(0,-300,0);
 		//instanciate the ball
+		balle.SetVisible(true);
+		balle.SetPosition(canon.GetPos());
+		balle.SetDir(&canon.GetDir());
+	}
+
+	if (balle.GetPos().x > bask.GetPos().x || balle.GetPos().x < bask.GetPos().x + bask.GetCenter().x * 2)
+	{
+
 	}
 
 	balle.Update();
@@ -55,8 +74,11 @@ void Peggle::Draw()
 		D3DXSPRITE_OBJECTSPACE | D3DXSPRITE_DONOTMODIFY_RENDERSTATE));
 
 	bg.Draw(spriteBatch);
-	brk.Draw(spriteBatch);
 	balle.Draw(spriteBatch);
+	for (int i = 0; i < 100; i++)
+	{
+		brk[i].Draw(spriteBatch);
+	}
 	bask.Draw(spriteBatch);
 	canon.Draw(spriteBatch);
 
